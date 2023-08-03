@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/futura-std-4" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/Grazziee/Portfolio/main/logos/GA_logo_05.png">
+    <title>GA || Portfolio</title>
+
+    <style>
+        .element {
+            border-right: none;
+        }
+
+        body {
+            width: 100%;
+            background-color: #272957;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            border: 0;
+            margin: 0;
+        }
+
+        * {
+            padding: 0%;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5em;
+            margin-top: 3%;
+            color: #2D2C35;
+            text-align: justify;
+        }
+
+        .section_title {
+            width: fit-content;
+            font-size: 80px;
+            position: relative;
+            font-family: 'Futura Std', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .container {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+        }
+
+        .test-holder {
+            margin: 5px;
+            margin-left: 60px;
+            margin-right: 60px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .test-img {
+            padding: 10%;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .fade-in.fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HERO */
+        #hero {
+            background-image: url(https://raw.githubusercontent.com/Grazziee/Portfolio/main/bg/hero_final.gif);
+            background-size: cover;
+            background-position: top center;
+            position: relative;
+        }
+
+        #hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px 0px;
+            position: relative;
+        }
+
+        #hero .hero {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        #hero h1 {
+            display: block;
+            width: fit-content;
+            font-size: 100px;
+            position: relative;
+            color: #F2E4D0;
+            font-family: 'Futura Std', sans-serif;
+            letter-spacing: 0.1em;
+            line-height: 0.9em;
+            font-weight: 700;
+            text-align: left;
+            margin-right: auto;
+            margin-left: 70px;
+            margin-top: 180px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        #hero h1::before,
+        #hero h1::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 15px;
+            background-color: #172352;
+            position: absolute;
+        }
+
+        #hero h1::before {
+            top: 0;
+        }
+
+        #hero h1::after {
+            bottom: 0;
+        }
+
+        #hero h1:hover {
+            color: #ffffff;
+            transition: 0.5s;
+        }
+
+        #hero h2 {
+            display: block;
+            width: fit-content;
+            font-size: 40px;
+            position: relative;
+            color: #F2E4D0;
+            font-family: 'Futura Std', sans-serif;
+            font-weight: lighter;
+            font-style: italic;
+            text-align: left;
+            margin-right: auto;
+            margin-left: 70px;
+            margin-top: 20px;
+        }
+
+        #hero h2:hover {
+            color: #ffffff;
+            transition: 0.5s;
+        }
+
+        /* ABOUT ME */
+        #aboutme {
+            background-color: #F2E4D0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #aboutme .aboutme {
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 0% auto;
+            align-items: center;
+        }
+
+        #aboutme h3 {
+            color: #3E2C62;
+            margin-top: 4%;
+        }
+
+        /* SKILLS */
+        #test-skills {
+            width: auto;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            margin: auto;
+        }
+
+        #skills {
+            background-color: #3E2C62;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #skills .skills {
+            max-width: 1200px;
+            margin: 0% auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #skills h3 {
+            color: #BC9FC1;
+            margin-bottom: 4%;
+        }
+
+        #skills .card {
+            display: flex;
+            background-color: rgba(43, 32, 46, 0.781);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 300px;
+            max-height: 100%;
+            margin: auto;
+            margin-bottom: 40px;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: 0.3s ease transform;
+        }
+
+        #skills .card {
+            transition: 0.3s ease transform;
+        }
+
+        #skills .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgb(176, 145, 194);
+        }
+
+        #skills .skill_icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        #skills img {
+            width: 150px;
+            height: 150px;
+        }
+
+        #skills .skill_info {
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Futura Std', sans-serif;
+            flex-grow: 1;
+            color: #F2E4D0;
+        }
+
+
+        #skills .path-box {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #skills .row {
+            color: white;
+        }
+
+        /* WEBDEV */
+        #webdev {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+            width: auto;
+            height: 100vh;
+            background-color: #5474F4;
+        }
+
+        #webdev .webdev {
+            max-width: 1200px;
+            margin: 0% auto;
+            padding: 10px 0;
+        }
+
+        #webdev .wd_card_cont {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        #webdev .card {
+            display: flex;
+            background-color: #BC9FC1;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 280px;
+            height: 370px;
+            max-height: 100%;
+            margin: auto;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 15px;
+            padding: 5px;
+        }
+
+        #webdev .card {
+            transition: 0.3s ease transform;
+        }
+
+        #webdev .card:hover {
+            transform: translateY(-15px);
+        }
+
+        #webdev .wd_icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px 10px;
+        }
+
+        #webdev .wd_info {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Futura Std', sans-serif;
+            flex-grow: 1;
+        }
+
+        #webdev h3 {
+            color: #272957;
+            margin: auto;
+            margin-bottom: 3%;
+        }
+
+        #webdev h4 {
+            color: #F2E4D0;
+            font-size: 150%;
+            font-style: italic;
+            margin: 12px;
+        }
+
+        #webdev img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        #webdev .row {
+            color: white;
+        }
+
+        #webdev .buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #webdev .btn {
+            display: inline-block;
+            font-family: 'Futura Std', sans-serif;
+            background-color: #4C49A9;
+            color: #BC9FC1;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 12px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        #webdev .btn:hover {
+            background-color: #272957;
+            color: #BC9FC1;
+        }
+
+        #webdev .btn:active {
+            background-color: #272957;
+            color: #BC9FC1;
+        }
+
+        /* ART */
+        #art {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #4C49A9;
+            margin-top: 20px;
+            margin: auto;
+        }
+
+        #art .art {
+            max-width: 1200px;
+            margin: 0% auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #art h3 {
+            color: #F2E4D0;
+            margin-top: 0;
+        }
+
+        #art img {
+            width: 185px;
+            height: 185px;
+            border-radius: 15px;
+            margin-bottom: 50%;
+        }
+
+        #art img {
+            transition: 0.3s ease transform;
+        }
+
+
+        #art img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 2px 5px rgb(176, 145, 194);
+        }
+
+        #art .row {
+            color: white;
+        }
+
+        .row {
+            align-items: center;
+        }
+
+        /* CONTACT */
+        #contactme {
+            background-image: url(https://raw.githubusercontent.com/Grazziee/Portfolio/main/bg/id_back_final.gif);
+            background-size: cover;
+            background-position: top center;
+            position: relative;
+        }
+
+        #contactme .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px 0px;
+            position: relative;
+        }
+
+        #contactme .hero {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        #contactme h1 {
+            display: block;
+            width: fit-content;
+            font-size: 120px;
+            position: relative;
+            color: #F2E4D0;
+            font-family: 'Futura Std', sans-serif;
+            letter-spacing: 0.1em;
+            line-height: 0.9em;
+            font-weight: 700;
+            text-align: left;
+            margin-right: auto;
+            margin-left: 100px;
+            margin-top: 180px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        #contactme h1::before,
+        #contactme h1::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 15px;
+            background-color: #172352;
+            position: absolute;
+        }
+
+        #contactme h1::before {
+            top: 0;
+        }
+
+        #contactme h1::after {
+            bottom: 0;
+        }
+
+        #contactme h1:hover {
+            color: #ffffff;
+            transition: 0.5s;
+        }
+
+        #contactme h2 {
+            display: block;
+            width: fit-content;
+            font-size: 60px;
+            position: relative;
+            color: #F2E4D0;
+            font-family: 'Futura Std', sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 70px;
+            text-align: left;
+            margin-right: auto;
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+
+        #contactme h2:hover {
+            color: #ffffff;
+            transition: 0.5s;
+        }
+
+        /* FOOTER */
+        #footer .footer {
+            min-height: 200px;
+            flex-direction: column;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #footer h1 {
+            color: #5474F4;
+            font-weight: bold;
+            font-size: 45px;
+            letter-spacing: 0.1rem;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            text-align: center;
+        }
+
+        #footer .socmed_icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5%;
+        }
+
+        #footer .socmed_item {
+            height: 50px;
+            width: 50px;
+            margin: 0 20px;
+        }
+
+        #footer .socmed_item img {
+            filter: grayscale(1);
+            transition: 0.3s ease filter;
+        }
+
+        #footer .socmed_item:hover img {
+            filter: grayscale(0);
+        }
+
+        #footer p {
+            color: rgb(255, 255, 255);
+            font-size: 0.8em;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        #footer .logo {
+            width: 150px;
+            margin: 2%;
+        }
+
+        /* SCROLL BAR */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #272957;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #5474F4;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5474F4;
+        }
+
+        /* BACK TO TOP */
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 7px 20px;
+            background-color: #BC9FC1;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+        }
+
+        .back-to-top.show {
+            display: block;
+        }
+
+
+        @keyframes fadeInFromBottom {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Nest Hub */
+        @media only screen and (min-width: 992px) and (max-width: 1024px) {
+
+            .element {
+                border-right: none;
+            }
+
+            #hero h1 {
+                font-size: 80px;
+                margin-left: 20px;
+                margin-top: 120px;
+
+            }
+
+            #hero h2 {
+                font-size: 36px;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+            #aboutme .container {
+                width: 80%;
+            }
+
+            #aboutme h3 {
+                font-size: 4em;
+                margin-top: 4%;
+            }
+
+            #aboutme p {
+                font-size: 1.1em;
+            }
+
+            #skills h3 {
+                font-size: 4em;
+                margin-top: 2%;
+                margin-bottom: 3%;
+            }
+
+            #skills .card {
+                width: 250px;
+                margin-bottom: 15px;
+            }
+
+            #skills .skill_icon {
+                padding: 7px;
+            }
+
+            #skills img {
+                width: 100px;
+                height: 100px;
+            }
+
+            #webdev .card {
+                width: 200px;
+                height: 250px;
+                margin-bottom: 15px;
+                padding: 10px;
+            }
+
+            #webdev h3 {
+                font-size: 3.2em;
+                margin-bottom: 1%;
+            }
+
+            #webdev h4 {
+                font-size: 100%;
+                font-style: italic;
+                margin: 5px;
+            }
+
+            #webdev .buttons {
+                text-align: center;
+                margin-top: 1px;
+            }
+
+            #webdev .btn {
+                padding: 7px 10px;
+                font-size: 7px;
+                margin: 2px;
+            }
+
+            #art {
+                margin-top: 10px;
+                margin: auto;
+            }
+
+            #art h3 {
+                margin-top: 2%;
+                font-size: 3.2em;
+            }
+
+            #art img {
+                width: 130px;
+                height: 130px;
+            }
+
+            #contactme h1 {
+                font-size: 80px;
+                margin-left: 50px;
+                margin-top: 120px;
+            }
+
+            #contactme h2 {
+                font-size: 36px;
+                margin-top: 10px;
+                margin-left: 50px;
+                line-height: 50px;
+            }
+
+            #footer h1 {
+                font-size: 32px;
+            }
+
+            #footer .socmed_icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 5%;
+            }
+
+            #footer .socmed_item {
+                height: 32px;
+                width: 32px;
+                margin: 0 10px;
+            }
+
+            #footer p {
+                color: rgb(255, 255, 255);
+                font-size: 0.6em;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            #footer .logo {
+                width: 100px;
+                margin: 2%;
+            }
+        }
+
+        /* iPad Mini */
+        @media only screen and (min-width:768px) and (max-width: 991px) {
+
+            .element {
+                border-right: none;
+            }
+
+            .test-holder {
+                margin: 5px;
+                margin-left: 2px;
+                margin-right: 2px;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .test-img {
+                padding: 10%;
+            }
+
+            #hero h1 {
+                font-size: 80px;
+                margin-left: 20px;
+                margin-top: 300px;
+
+            }
+
+            #hero h2 {
+                font-size: 40px;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+            #aboutme .container {
+                width: 80%;
+            }
+
+            #aboutme h3 {
+                font-size: 4.5em;
+                margin-top: 4%;
+            }
+
+            #aboutme p {
+                font-size: 1.33em;
+            }
+
+            #skills h3 {
+                font-size: 4em;
+                margin-top: 2%;
+                margin-bottom: 3%;
+            }
+
+            #skills .card {
+                width: 160px;
+                margin-bottom: 15px;
+            }
+
+            #skills .skill_icon {
+                padding: 7px;
+            }
+
+            #skills img {
+                width: 120px;
+                height: 120px;
+            }
+
+            #webdev .card {
+                width: 320px;
+                height: 270px;
+                max-height: 100%;
+                margin: auto;
+                margin-bottom: 50px;
+                padding: 20px;
+            }
+
+            #webdev h3 {
+                font-size: 3.2em;
+                margin-bottom: 5%;
+            }
+
+            #webdev h4 {
+                font-size: 150%;
+                font-style: italic;
+                margin: 8px;
+            }
+
+            #webdev .buttons {
+                text-align: center;
+                margin-top: 1px;
+            }
+
+            #webdev .btn {
+                padding: 7px 10px;
+                font-size: 10px;
+                margin: 2px;
+            }
+
+            #art {
+                margin-top: 20px;
+                margin: auto;
+            }
+
+            #art h3 {
+                margin-top: 2%;
+                font-size: 4em;
+            }
+
+            #art img {
+                width: 200px;
+                height: 200px;
+            }
+
+            #contactme h1 {
+                font-size: 100px;
+                margin-left: 20px;
+                margin-top: 300px;
+            }
+
+            #contactme h2 {
+                font-size: 50px;
+                margin-top: 10px;
+                margin-left: 20px;
+                line-height: 70px;
+            }
+
+            #footer h1 {
+                font-size: 40px;
+                margin-bottom: 8%;
+            }
+
+            #footer .socmed_icon {
+                margin-bottom: 5%;
+            }
+
+            #footer .socmed_item {
+                height: 32px;
+                width: 32px;
+                margin: 0 20px;
+            }
+
+            #footer p {
+                color: rgb(255, 255, 255);
+                font-size: 0.9em;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            #footer .logo {
+                width: 150px;
+                margin: 2%;
+            }
+        }
+
+        /* Tablets Landscape */
+        @media only screen and (min-width:415px) and (max-width: 767px) {
+
+            .element {
+                border-right: none;
+            }
+
+            #hero h1 {
+                font-size: 60px;
+                margin-left: 20px;
+                margin-top: 120px;
+
+            }
+
+            #hero h2 {
+                font-size: 23px;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+
+            #aboutme .container {
+                width: 80%;
+            }
+
+            #aboutme h3 {
+                font-size: 3.2em;
+                margin-top: 4%;
+            }
+
+            #aboutme p {
+                font-size: 0.9em;
+            }
+
+            #skills h3 {
+                font-size: 3.2em;
+                margin-top: 2%;
+                margin-bottom: 3%;
+            }
+
+            #skills .card {
+                width: 150px;
+                margin-bottom: 15px;
+            }
+
+            #skills .skill_icon {
+                padding: 7px;
+            }
+
+            #skills img {
+                width: 100px;
+                height: 100px;
+            }
+
+            #webdev .card {
+                width: 270px;
+                height: 200px;
+                max-height: 100%;
+                margin: auto;
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+
+            #webdev h3 {
+                font-size: 3em;
+                margin-bottom: 1%;
+            }
+
+            #webdev h4 {
+                font-size: 100%;
+                font-style: italic;
+                margin: 5px;
+            }
+
+            #webdev .buttons {
+                text-align: center;
+                margin-top: 1px;
+            }
+
+            #webdev .btn {
+                padding: 7px 10px;
+                font-size: 7px;
+                margin: 2px;
+            }
+
+            #art {
+                margin-top: 20px;
+                margin: auto;
+            }
+
+            #art h3 {
+                margin-top: 2%;
+                font-size: 3em;
+            }
+
+            #art img {
+                width: 100px;
+                height: 100px;
+            }
+
+            #contactme h1 {
+                font-size: 70px;
+                margin-left: 20px;
+                margin-top: 100px;
+            }
+
+            #contactme h2 {
+                font-size: 32px;
+                margin-top: 10px;
+                margin-left: 20px;
+                line-height: 50px;
+            }
+
+            #footer h1 {
+                font-size: 32px;
+            }
+
+            #footer .socmed_icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 5%;
+            }
+
+            #footer .socmed_item {
+                height: 32px;
+                width: 32px;
+                margin: 0 10px;
+            }
+
+            #footer p {
+                color: rgb(255, 255, 255);
+                font-size: 0.6em;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            #footer .logo {
+                width: 100px;
+                margin: 2%;
+            }
+        }
+
+        /* Mobile Devices */
+        @media (max-width: 414px) {
+
+            .element {
+                border-right: none;
+            }
+
+            .test-holder {
+                margin: 5px;
+                margin-left: 2px;
+                margin-right: 2px;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .test-img {
+                padding: 10%;
+            }
+
+            #hero h1 {
+                font-size: 50px;
+                margin-left: 0px;
+                margin-top: 270px;
+
+            }
+
+            #hero h2 {
+                font-size: 27px;
+                margin-top: 10px;
+                margin-left: 0px;
+            }
+
+            #aboutme .container {
+                width: 80%;
+            }
+
+            #aboutme h3 {
+                font-size: 2.7em;
+                margin-top: 8%;
+            }
+
+            #aboutme p {
+                font-size: 0.95em;
+            }
+
+            #skills h3 {
+                font-size: 3em;
+                margin-top: 0;
+                margin-bottom: 3%;
+            }
+
+            #skills .card {
+                width: 250px;
+                margin-bottom: 15px;
+            }
+
+            #skills .skill_icon {
+                padding: 7px;
+            }
+
+            #skills img {
+                width: 60px;
+                height: 60px;
+            }
+
+            #skills h4 {
+                font-size: 1em;
+                margin-bottom: 0;
+            }
+
+            #webdev .card {
+                width: 220px;
+                height: 180px;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            #webdev h3 {
+                font-size: 1.7em;
+                margin-bottom: 1%;
+            }
+
+            #webdev h4 {
+                font-size: 100%;
+                margin: 5px;
+            }
+
+            #webdev .buttons {
+                text-align: center;
+                margin-top: 1px;
+            }
+
+            #webdev .btn {
+                padding: 5px 10px;
+                font-size: 7px;
+                margin: 2px;
+            }
+
+            #art {
+                margin-top: 20px;
+                margin: auto;
+            }
+
+            #art h3 {
+                margin-top: 2%;
+                font-size: 3em;
+            }
+
+            #art img {
+                width: 100px;
+                height: 100px;
+            }
+
+            #contactme h1 {
+                font-size: 45px;
+                margin-top: 250px;
+                margin-left: 0px;
+            }
+
+            #contactme h2 {
+                font-size: 27px;
+                margin-top: 10px;
+                margin-left: 0px;
+            }
+
+            #footer h1 {
+                font-size: 30px;
+            }
+
+            #footer .socmed_icon {
+                margin-bottom: 8%;
+            }
+
+            #footer .socmed_item {
+                height: 30px;
+                width: 30px;
+                margin: 0 20px;
+            }
+
+            #footer p {
+                color: rgb(255, 255, 255);
+                font-size: 0.6em;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            #footer .logo {
+                width: 100px;
+                margin: 2%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- * HERO SECTION * -->
+    <section id="hero">
+        <div class="hero container">
+            <h1 class="fade-in">GRAZZIELA <br> ANTONIETTE <br> BICOMONG</h1>
+            <h2 class="fade-in">Graphic Designer <br> Graphic Artist <br> UI/UX Designer</h2>
+        </div>
+    </section>
+
+    <!-- * ABOUT ME SECTION * -->
+    <section id="aboutme">
+        <div class="aboutme container">
+            <div class="gif_container">
+                <h3 class="section_title" id="test-skills">✦ ABOUT ME ✦</h3>
+                <p class="fade-in">Hi! I'm Grazziela Antoniette P. Bicomong.
+                    I am a Bachelor of Science in Information Technology student at Polytechnic University of the
+                    Philippines Sto. Tomas Branch.
+                </p>
+
+                <p class="fade-in">I am a diligent learner who excels in art and a passionate artist with a broad range
+                    of skills.
+                    I am steadfastly committed to mastering the fields of graphic design, UI/UX, and digital art.
+                    As a result, I find myself engaged in the world of creativity and innovation all the time.
+                    We encounter and discuss complex design theories and the most recent developments in software.
+                </p>
+
+                <p class="fade-in">I balance the responsibilities of my academic work with the needs of my steadily
+                    expanding
+                    portfolio.
+                    I value any chance I get to work with like-minded people because it feeds my passion,
+                    and helps me reach the limits of my artistic potential.
+                    I am developing my craft with each project and assignment, eagerly anticipating the day
+                    when my abilities will make an impact on the world outside of these educational doors.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- * SKILLS SECTION * -->
+    <section id="skills">
+        <div class="skills">
+            <h3 class="section_title" id="test-skills">✦ SKILLS ✦</h3>
+            <div class="row">
+                <div class="col-md-3 col-lg-4">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/skill%20logos/html.png"
+                                alt="Skill 1">
+                        </div>
+                        <div class="skill_info">
+                            <h4>HTML</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/skill%20logos/css.png"
+                                alt="Skill 2">
+                        </div>
+                        <div class="skill_info">
+                            <h4>CSS</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/skill%20logos/js.jpg"
+                                alt="Skill 3">
+                        </div>
+                        <div class="skill_info">
+                            <h4>JavaScript</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/skill%20logos/php.png"
+                                alt="Skill 4">
+                        </div>
+                        <div class="skill_info">
+                            <h4>PHP</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/skill%20logos/ai.png"
+                                alt="Skill 5">
+                        </div>
+                        <div class="skill_info">
+                            <h4>Adobe Illustrator</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/skill%20logos/canva.png"
+                                alt="Skill 6">
+                        </div>
+                        <div class="skill_info">
+                            <h4>Canva</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- * WEBDEV PROJECTS SECTION * -->
+    <section id="webdev">
+        <div class="webdev">
+            <h3 class="section_title" id="test-skills">✦ WEB DEVELOPMENT PROJECTS ✦</h3>
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="webdev_icon">
+                            <img class="ghibli"
+                                src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/wd/sg.png"
+                                alt="Webdev 1">
+                        </div>
+                        <div class="webdev_info">
+                            <h4>STUDIO GHIBLI</h4>
+                            <div class="buttons">
+                                <a href="https://cjdeclaro.com/edukasyon/exams/wd/midterm/submissions/Dec212022224540000000.html"
+                                    class="btn" target="_blank">SITE LINK</a>
+                                <a href="https://github.com/Grazziee/Studio-Ghibli/blob/main/index.html" class="btn"
+                                    target="_blank">SOURCE CODE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/wd/hsr.png"
+                                alt="Webdev 2">
+                        </div>
+                        <div class="skill_info">
+                            <h4>HSR: CHARACTER LIST</h4>
+                            <div class="buttons">
+                                <a href="https://cjdeclaro.com/edukasyon/exams/e2/activity1/submissions/May122023211619000000.html"
+                                    class="btn" target="_blank">SITE LINK</a>
+                                <a href="https://github.com/Grazziee/HSR-Character-List/blob/main/index.html"
+                                    class="btn" target="_blank">SOURCE CODE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/wd/404.png"
+                                alt="Webdev 3">
+                        </div>
+                        <div class="skill_info">
+                            <h4>ERROR 404</h4>
+                            <div class="buttons">
+                                <a href="https://cjdeclaro.com/edukasyon/exams/e2/activity2/submissions/Jun292023183643000000.html"
+                                    class="btn" target="_blank">SITE LINK</a>
+                                <a href="https://github.com/Grazziee/Error-404/blob/main/index.html" class="btn"
+                                    target="_blank">SOURCE CODE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="skill_icon">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/wd/pu.png"
+                                alt="Webdev 4">
+                        </div>
+                        <div class="skill_info">
+                            <h4>PARALLEL UNIVERSE</h4>
+                            <div class="buttons">
+                                <a href="https://cjdeclaro.com/edukasyon/exams/e2/midterm/submissions/Jun022023142823000000.html"
+                                    class="btn" target="_blank">SITE LINK</a>
+                                <a href="https://github.com/Grazziee/E2_Midterms_Parallax/blob/main/index.html"
+                                    class="btn" target="_blank">SOURCE CODE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- * ART PROJECTS SECTION * -->
+    <section id="art">
+        <h3 class="section_title">✦ ART PROJECTS ✦</h3>
+        <div class="row">
+            <div class="test-holder">
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/ashitaka%20final.png"
+                        alt="Art 1" class="test-img">
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/howl%20and%20sophie.png"
+                        alt="Art 2" class="test-img">
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/tink.png" alt="Art 3"
+                        class="test-img">
+                </div>
+            </div>
+            <div class="test-holder">
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/SANAOL%20grain.png"
+                        alt="Art 4" class="test-img">
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/pixel%20final.png"
+                        alt="Art 5" class="test-img">
+                </div>
+
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/vampire%20cookie.png"
+                        alt="Art 6" class="test-img">
+                </div>
+            </div>
+            <div class="test-holder">
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/getou.png" alt="Art 7"
+                        class="test-img">
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/poppp.png" alt="Art 8"
+                        class="test-img">
+                </div>
+                <div class="col-md-3 col-lg-4">
+                    <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/art/marnie.png" alt="Art 9"
+                        class="test-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contactme">
+        <div class="hero container">
+            <h1 class="fade-in">CONTACT ME</h1>
+            <h2 class="fade-in">Grazziela Bicomong <br> +63 919 005 1740 <br> @zielaaa <br> grazzielapbicomong@gmail.com
+            </h2>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <section id="footer">
+        <div class="footer container">
+            <div class="brand">
+                <img class="logo" src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/logos/GA_logo_4.png">
+                <h1>✦ FOLLOW ME ✦</h1>
+                <div class="socmed_icon">
+                    <div class="socmed_item">
+                        <a href="https://www.facebook.com/angel.pbic">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/socmeds/sm_fb.png">
+                        </a>
+                    </div>
+                    <div class="socmed_item">
+                        <a href="https://www.instagram.com/zielaaa/">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/socmeds/sm_ig.png">
+                        </a>
+                    </div>
+                    <div class="socmed_item">
+                        <a href="linkedin.com/in/gapbicomong-0a2358252">
+                            <img src="https://raw.githubusercontent.com/Grazziee/Portfolio/main/socmeds/sm_lin.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p>Copyright © 2023 Grazziela Antoniette. All rights reserved.</p>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <a href="#top" class="back-to-top" id="backToTopBtn">↑</a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeIns = document.querySelectorAll(".fade-in");
+
+            function checkFadeIns() {
+                fadeIns.forEach((fadeIn) => {
+                    const position = fadeIn.getBoundingClientRect();
+                    const screenHeight = window.innerHeight;
+
+                    if (position.top >= 0 && position.bottom <= screenHeight) {
+                        fadeIn.classList.add("fade-in-visible");
+                    } else {
+                        fadeIn.classList.remove("fade-in-visible");
+                    }
+                });
+            }
+
+            checkFadeIns();
+            window.addEventListener("scroll", checkFadeIns);
+        });
+
+
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('#backToTopBtn').fadeIn();
+            } else {
+                $('#backToTopBtn').fadeOut();
+            }
+        });
+
+    </script>
+</body>
+
+</html>
